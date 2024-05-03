@@ -170,6 +170,8 @@ class UserController extends Controller
                 Redirect::to('login/login');
             }
         });
+
+        Request::method('POST', function() {});
     }
 
     // Middleware
