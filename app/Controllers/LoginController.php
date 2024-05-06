@@ -35,15 +35,16 @@ class LoginController extends Controller
             $username = $_POST['username'];
             $password = $_POST['password'];
 
-            if (empty($username)) { array_push($this->_errors, "Username required"); }
-            if (empty($password)) { array_push($this->_errors, "Password required"); }
+            // Ensure username and password are not empty
+            if (empty($username) || empty($password)) { exit("Username required"); }
+            // check if username is exists or not
+            if (!empty($username)) {
+                $user = $this->model->getUserByUsername($username);
+                if (empty($user)) { exit('Username does not exist.'); }
+            }
 
-            if (empty($this->_errors)) {
-                if ($this->model->loginuser($username, $password)) {
-                    Redirect::to('home');
-                } else {
-                    exit('Wrong credentials');
-                }
+            if ($this->model->loginuser($username, $password)) {
+                Redirect::to('home');
             } else {
                 exit('Wrong credentials');
             }

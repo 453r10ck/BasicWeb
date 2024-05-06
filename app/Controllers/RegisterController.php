@@ -31,6 +31,12 @@ class RegisterController extends Controller
                 exit('Please complete registration form');
             }
 
+            if (strlen($password) < 8) { exit("Password must be at least 8 long characters."); }
+
+            if (preg_match('/' . $_POST['username'] . '/i', $_POST['password']) == 1) {
+                exit('Password must not contain username');
+            }
+
             $result = $this->model->addUser($_POST['username'], $_POST['password'], $_POST['email']);
             if ($result) {
                 echo '<p>Register successfully!<br>You can <a href="'. PUBLIC_ROOT .'">login</a> here</p>';
