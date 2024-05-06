@@ -13,6 +13,7 @@ class Redirect
                         break;
                 }
             } else {
+                header("Content-Security-Policy: default-src 'self';object-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; base-uri 'none';");
                 header('Location: ' . URL . $location);
             }
         }
