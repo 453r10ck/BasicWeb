@@ -124,6 +124,6 @@
     <br>
 
     <h4><strong>You can upload unlimited the number of posts!</strong></h4>
-    
+    <h4><?=html_entity_decode($datas['balance'])?></h4>
 </body>
 </html>

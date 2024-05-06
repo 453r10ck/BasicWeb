@@ -7,6 +7,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->model = $this->loadModel('User');
+        $this->model2 = $this->loadModel('Transaction');
     }
 
     public function profile($user_id)
@@ -156,13 +157,18 @@ class UserController extends Controller
     }
 
     public function upgrade($param) {
-        $user_id = $param[0];
+        $this->user_id = $param[0];
 
         // show upgrade information
         Request::method('GET', function() {
             if ($this->isLoggedIn()) {
                 if ($_SESSION['role'] == 2) {
-                    $this->render('user/upgrade');
+                    if ($this->user_id == $_SESSION['user_id']) {
+                        $user = $this->model->getUser($this->user_id);
+                        $this->render('user/upgrade', $user);
+                    } else {
+                        http_response_code(404);
+                    }
                 } else {
                     Redirect::to('home');
                 }
