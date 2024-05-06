@@ -40,8 +40,10 @@ class User extends Model
             $_SESSION['user_id'] = $user_id;
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $result['role'];
+            $_SESSION['csrf'] = md5(uniqid(mt_rand(), true));
+
             // setcookie('session', uniqid(), time() + 3600, '/', '', false, true);
-            session_set_cookie_params(['httponly' => true]);
+            setcookie('cookie', 'value', time()+86400, '/', null, null, true, ['samesite'=>'Strict'], ['httponly' => true]);
 
             return true;
         } else {

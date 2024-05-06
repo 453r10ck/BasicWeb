@@ -131,6 +131,8 @@
         <label for="password2">Confirm new password</label> <br>
         <input type="password" name="password2"> <br>
 
+        <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+
         <input type="submit" name="change" value="Change">
     </form>
 </body>
