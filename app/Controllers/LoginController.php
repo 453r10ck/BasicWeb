@@ -35,7 +35,6 @@ class LoginController extends Controller
             $username = $_POST['username'];
             $password = $_POST['password'];
 
-            // Validate
             if (empty($username)) { array_push($this->_errors, "Username required"); }
             if (empty($password)) { array_push($this->_errors, "Password required"); }
 
@@ -51,10 +50,6 @@ class LoginController extends Controller
         });
     }
 
-    public function forgot_password() 
-    {
-        
-    }
     // Middleware
     private function isLoggedIn() {
         if (!isset($_SESSION['loggedIn'])) {
