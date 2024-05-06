@@ -123,7 +123,7 @@ class AdminController extends Controller
             if ($this->isAdmin()) {
                 $user = $this->model->getuser($this->user_id);
 
-                if ($_POST['password1'] == $_POST['password2']) {
+                if ($_POST['password1'] == $_POST['password2'] && $_SESSION['csrf'] == $_POST['csrf']) {
                     $this->model->updatePassword($user['id'], sha1($_POST['password1']));
 
                     if ($_SESSION['user_id'] == $this->user_id) {

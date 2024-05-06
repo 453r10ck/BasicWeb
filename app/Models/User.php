@@ -41,10 +41,6 @@ class User extends Model
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $result['role'];
             $_SESSION['csrf'] = md5(uniqid(mt_rand(), true));
-
-            // setcookie('session', uniqid(), time() + 3600, '/', '', false, true);
-            setcookie('cookie', 'value', time()+86400, '/', null, null, true, ['samesite'=>'Strict'], ['httponly' => true]);
-
             return true;
         } else {
             return false;
