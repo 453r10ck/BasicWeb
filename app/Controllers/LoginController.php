@@ -3,7 +3,7 @@
 class LoginController extends Controller
 {
     private $_errors = array();
-
+    
     public function __construct()
     {
         $this->model = $this->loadModel('User');
