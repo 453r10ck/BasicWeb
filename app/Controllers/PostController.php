@@ -7,7 +7,6 @@ class PostController extends Controller
     public function __construct() 
     {
         $this->model = $this->loadModel('Post');
-        $this->model2 = $this->loadModel('Comment');
     }
 
     public function detail($param)
