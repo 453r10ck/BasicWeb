@@ -294,7 +294,6 @@
             </div>
             <button class="btn btn-success"><a href="<?=PUBLIC_ROOT?>user/edit/<?=$datas['id']?>">Edit profile</a></button>
             <button class="btn btn-success"><a href="<?=PUBLIC_ROOT?>user/change_password/<?=$datas['id']?>">Change password</a></button>
-            <button class="btn btn-success"><a href="<?=PUBLIC_ROOT?>user/upgrade/<?=$datas['id']?>">Upgrade</a></button>
         </div>
     </div>
 </body>

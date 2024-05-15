@@ -7,7 +7,6 @@ class UserController extends Controller
     public function __construct()
     {
         $this->model = $this->loadModel('User');
-        $this->model2 = $this->loadModel('Transaction');
     }
 
     public function profile($user_id)

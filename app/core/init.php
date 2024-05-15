@@ -2,9 +2,9 @@
 
 define('APP_ROOT', '/var/www/basicweb/app/');
 // echo APP_ROOT;
-define('PUBLIC_ROOT', 'http://192.168.153.129/');
+define('PUBLIC_ROOT', 'http://localhost/');
 // echo PUBLIC_ROOT;
-define('URL', 'http://192.168.153.129/');
+define('URL', 'http://localhost/');
 
 // File upload
 define('UPLOAD_POST', 'images/post/');
@@ -13,7 +13,7 @@ define('FILE_MAX_SIZE', 4);
 // Database
 define('DBHOST', 'localhost');
 define('DBUSER', 'tumeow');
-define('DBPASS', '{v3ry_s3cr3t}');
+define('DBPASS', 'v3ry_s3cr3t');
 define('DBNAME', 'basicweb');
 
 // Start session

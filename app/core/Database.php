@@ -14,15 +14,8 @@ class Database
     {
         $dsn = 'mysql:host=' . $this->_host . ';dbname=' . $this->_dbname;
 
-        $options = array(
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-            PDO::ATTR_EMULATE_PREPARES => FALSE,
-            PDO::ATTR_PERSISTENT => TRUE
-        );
-
         try {
-            $this->_pdo = new PDO($dsn, $this->_user, $this->_password, $options);
+            $this->_pdo = new PDO($dsn, $this->_user, $this->_password);
         } catch (Exception $exception) {
             http_response_code(404);
         }

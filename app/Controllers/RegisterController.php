@@ -31,7 +31,7 @@ class RegisterController extends Controller
                 exit('Please complete registration form');
             }
 
-            if (strlen($password) < 8) { exit("Password must be at least 8 long characters."); }
+            if (strlen($_POST['password']) < 8) { exit("Password must be at least 8 long characters."); }
 
             if (preg_match('/' . $_POST['username'] . '/i', $_POST['password']) == 1) {
                 exit('Password must not contain username');
